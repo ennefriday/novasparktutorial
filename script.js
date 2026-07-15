@@ -60,3 +60,27 @@ if (tutorImageFrame && tutorModal && closeModal) {
         }
     });
 }
+
+// Free Masterclass Popup Logic (shows every time the page loads)
+const masterclassOverlay = document.getElementById('masterclassOverlay');
+const masterclassClose = document.getElementById('masterclassClose');
+const masterclassJoinBtn = document.getElementById('masterclassJoinBtn');
+
+if (masterclassOverlay) {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      masterclassOverlay.classList.add('active');
+    }, 700);
+  });
+}
+
+function closeMasterclassPopup() {
+  masterclassOverlay.classList.remove('active');
+}
+
+if (masterclassClose) masterclassClose.addEventListener('click', closeMasterclassPopup);
+if (masterclassJoinBtn) masterclassJoinBtn.addEventListener('click', closeMasterclassPopup);
+
+masterclassOverlay.addEventListener('click', (e) => {
+  if (e.target === masterclassOverlay) closeMasterclassPopup();
+});

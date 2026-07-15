@@ -1806,3 +1806,155 @@ details.faq-item > summary::-webkit-details-marker {
     max-width: 700px;
     margin: 0 auto;
 }
+
+/* ===================== MASTERCLASS POPUP ===================== */
+.masterclass-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 25, 47, 0.72);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 3000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.masterclass-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.masterclass-modal {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-600) 100%);
+    border: 1px solid rgba(255, 107, 0, 0.35);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+    transform: scale(0.92) translateY(16px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.masterclass-overlay.active .masterclass-modal {
+    transform: scale(1) translateY(0);
+}
+
+.masterclass-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(234, 240, 250, 0.08);
+    color: var(--on-navy);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.2s ease;
+}
+
+.masterclass-close:hover {
+    background: rgba(255, 107, 0, 0.25);
+}
+
+.masterclass-watermark {
+    position: absolute;
+    inset: -20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px 28px;
+    transform: rotate(-16deg);
+    opacity: 0.06;
+    pointer-events: none;
+}
+
+.masterclass-watermark span {
+    font-family: var(--display);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--on-navy);
+    white-space: nowrap;
+}
+
+.masterclass-content {
+    position: relative;
+    z-index: 1;
+    padding: 44px 30px 34px;
+    text-align: center;
+}
+
+.masterclass-eyebrow {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 107, 0, 0.5);
+    border-radius: 999px;
+    background: var(--spark-soft);
+    color: var(--spark-dim);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.masterclass-subjects {
+    font-family: var(--display);
+    color: var(--paper);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.masterclass-subjects .dot {
+    color: var(--spark);
+}
+
+.masterclass-audience {
+    color: var(--on-navy-dim);
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+
+.masterclass-dates {
+    color: var(--on-navy);
+    font-family: var(--mono);
+    font-size: 13.5px;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+}
+
+.masterclass-warning {
+    color: var(--spark-dim);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.masterclass-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: var(--spark);
+    color: var(--paper);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.masterclass-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(255, 107, 0, 0.35);
+}
